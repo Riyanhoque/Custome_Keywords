@@ -2,7 +2,7 @@
 Documentation    To validate the Login form
 Library    SeleniumLibrary
 Library    Collections
-Library    ./custome_library/shop.py
+Library        ./custome_library/shop.py
 Library    XML
 Test Setup        open the browser with the Mortagage payment url
 Test Teardown        Close Browser
