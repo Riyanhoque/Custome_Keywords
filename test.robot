@@ -23,7 +23,7 @@ Validate UnSuccesful Login
     LandingPage.verify error message is correct 
 
 Validate Cards display in the shopping page
-    Fill the Loging form    ${User_Valid_id}    ${User_valid_pass}
+    LandingPage.Fill the Loging form    ${User_Valid_id}    ${User_valid_pass}
     ShopPage.wait until Element is located in the page        ${Page}
     Verify card title in the shop page 
     # Select the card        Blackberry
