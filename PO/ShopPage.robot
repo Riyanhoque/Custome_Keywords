@@ -19,3 +19,15 @@ Verify card title in the shop page
    END
 
    Lists Should Be Equal        ${actuallist}    ${listelements}
+
+
+Select the card  
+    [Arguments]        ${Card_name}
+    @{LIST} =    Get WebElements    css:.card-title
+    ${index} =    Set Variable    1
+    FOR    ${element}    IN    @{LIST}
+        Exit For Loop If  '${Card_name}' == '${element.text}'
+        ${index} =    Evaluate    ${index} + 1
+
+    END
+    Click Button    xpath:(//*[@class = 'card-footer'])[${index}]/button

@@ -26,7 +26,7 @@ Validate Cards display in the shopping page
     LandingPage.Fill the Loging form    ${User_Valid_id}    ${User_valid_pass}
     ShopPage.wait until Element is located in the page        ${Page}
     ShopPage.Verify card title in the shop page 
-    # Select the card        Blackberry
+    ShopPage.Select the card        Blackberry
     add card shop list    ${productLists}
 
     # Fill the login details and login form    
@@ -36,21 +36,6 @@ Validate Cards display in the shopping page
 
 
 *** Keywords ***    
-
-
-
-# Select the card 
-#     [Arguments]        ${Card_name}
-#     @{LIST} =    Get WebElements    css:.card-title
-#     ${index} =    Set Variable    1
-#     FOR    ${element}    IN    @{LIST}
-#         Exit For Loop If  '${Card_name}' == '${element.text}'
-#         ${index} =    Evaluate    ${index} + 1
-
-#     END
-#     Click Button    xpath:(//*[@class = 'card-footer'])[${index}]/button
-
-
 
 Fill the login details and login form
     Input Text        id:username     rahulshettyacademy
