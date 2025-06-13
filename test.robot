@@ -25,7 +25,7 @@ Validate UnSuccesful Login
 Validate Cards display in the shopping page
     LandingPage.Fill the Loging form    ${User_Valid_id}    ${User_valid_pass}
     ShopPage.wait until Element is located in the page        ${Page}
-    Verify card title in the shop page 
+    ShopPage.Verify card title in the shop page 
     # Select the card        Blackberry
     add card shop list    ${productLists}
 
@@ -37,16 +37,7 @@ Validate Cards display in the shopping page
 
 *** Keywords ***    
 
-Verify card title in the shop page 
-   @{listelements} =    Create List    iphone X    Samsung Note 8    Nokia Edge    Blackberry
-   @{LIST} =    Get WebElements    css:.card-title
-   @{actuallist} =    Create List
-   FOR    ${element}    IN    @{LIST}
-       Log    ${element.text}
-       Append To List       ${actuallist}    ${element.text}   
-   END
 
-   Lists Should Be Equal        ${actuallist}    ${listelements}
 
 # Select the card 
 #     [Arguments]        ${Card_name}
