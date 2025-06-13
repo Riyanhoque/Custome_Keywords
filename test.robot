@@ -29,7 +29,9 @@ Validate Cards display in the shopping page
     ShopPage.Select the card        Blackberry
     add card shop list    ${productLists}
 
-    # Fill the login details and login form    
+
+Select the from and navigate to the child window
+    LandingPage.Fill the login details and login form    
 
 
 
@@ -37,14 +39,3 @@ Validate Cards display in the shopping page
 
 *** Keywords ***    
 
-Fill the login details and login form
-    Input Text        id:username     rahulshettyacademy
-    Input Password    id:password    learning
-    Click Element     css:input[value='user']
-    Wait Until Element Is Visible        css:.modal-footer   timeout= 15s 
-    Click Button      id:okayBtn
-    Wait Until Element Is Not Visible        css:.modal-footer
-    Select From List By Value    css:Select.form-control    teach
-    Select Checkbox     terms
-    Checkbox Should Be Selected        terms
-    Sleep    10
