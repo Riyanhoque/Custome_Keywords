@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    A resousce file is used for reusedable keywords and variables 
+Documentation    A online shop application, to validate the login form and shop items, checkout and confirmation page
 
 Library    SeleniumLibrary
 Library    OperatingSystem
@@ -14,6 +14,6 @@ ${Url}        https://rahulshettyacademy.com/loginpagePractise/
 
 *** Keywords ***
 open the browser with the Mortagage payment url
-    Create Webdriver    Chrome
+    Create Webdriver    Firefox
     Go To    ${Url}
     Maximize Browser Window
