@@ -100,13 +100,7 @@ Project dependencies installed:
 
 Bash 
 
-pip install robotframework robotframework-seleniumlibrary  
-
- 
-# Install custom project dependencies (e.g., your custom Python library if required) 
- 
-
-Appropriate WebDriver (e.g., ChromeDriver, GeckoDriver) installed and available in the system PATH or specified in the test setup. 
+pip install robotframework robotframework-seleniumlibrary 
 
  
 
