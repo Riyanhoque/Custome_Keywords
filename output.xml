@@ -1,432 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-09-26T21:20:21.863496" rpa="false" schemaversion="5">
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-09-27T03:15:26.593618" rpa="false" schemaversion="5">
 <suite id="s1" name="Test" source="F:\Test project\Custome_Keywords\test.robot">
-<test id="s1-t1" name="Validate UnSuccesful Login" line="26">
+<test id="s1-t1" name="API Test Create and delete item" line="56">
 <kw name="open the browser with the Mortagage payment url" owner="resource" type="SETUP">
 <kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:22.315037" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
+<msg time="2025-09-27T03:15:27.061727" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
 <arg>Firefox</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-09-26T21:20:22.314879" elapsed="6.231328"/>
+<status status="PASS" start="2025-09-27T03:15:27.061577" elapsed="6.241887"/>
 </kw>
 <kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:28.547902" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
+<msg time="2025-09-27T03:15:33.304942" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
 <arg>${Url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-09-26T21:20:28.547371" elapsed="0.964699"/>
+<status status="PASS" start="2025-09-27T03:15:33.304306" elapsed="0.789229"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-09-26T21:20:29.512464" elapsed="0.014518"/>
+<status status="PASS" start="2025-09-27T03:15:34.093831" elapsed="0.003045"/>
 </kw>
-<status status="PASS" start="2025-09-26T21:20:22.313979" elapsed="7.213206"/>
+<status status="PASS" start="2025-09-27T03:15:27.060549" elapsed="7.036508"/>
 </kw>
-<kw name="Fill the Loging form" owner="LandingPage">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:29.546664" level="INFO">Typing text 'rahulshe' into text field 'id:username'.</msg>
-<arg>id:username</arg>
-<arg>${userId}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:29.532116" elapsed="0.229369"/>
+<kw name="Create Session and Login" owner="APIpage">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-09-27T03:15:34.098620" level="INFO">Creating Session using : alias=api_session, url=https://rahulshettyacademy.com/loginpagePractise/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>api_session</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-09-27T03:15:34.098352" elapsed="0.000575"/>
 </kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:29.762142" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2025-09-26T21:20:29.784306" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id:password</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:29.761790" elapsed="0.046007"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-27T03:15:34.099583" level="INFO">${LOGIN_BODY} = {'username': 'rahulshettyacademy', 'password': 'learning'}</msg>
+<var>${LOGIN_BODY}</var>
+<arg>username=rahulshettyacademy</arg>
+<arg>password=learning</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-27T03:15:34.099171" elapsed="0.000457"/>
 </kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:29.808497" level="INFO">Clicking button 'signInBtn'.</msg>
-<arg>signInBtn</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:29.808164" elapsed="0.110519"/>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-09-27T03:15:34.837803" level="INFO">POST Request : url=https://rahulshettyacademy.com/loginpagePractise/login 
+ path_url=/loginpagePractise/login 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '58', 'Content-Type': 'application/json'} 
+ body=b'{"username": "rahulshettyacademy", "password": "learning"}' 
+ </msg>
+<msg time="2025-09-27T03:15:34.837984" level="INFO">POST Response : url=https://rahulshettyacademy.com/loginpagePractise/login 
+ status=404, reason=Not Found 
+ headers={'Date': 'Sat, 27 Sep 2025 00:15:35 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Cache-Control': 'no-cache, private', 'Connection': 'close', 'Content-Type': 'text/html; charset=UTF-8'} 
+ body=&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+        &lt;title&gt;Not Found&lt;/title&gt;
+
+        &lt;!-- Fonts --&gt;
+        &lt;link rel="preconnect" href="https://fonts.gstatic.com"&gt;
+        &lt;link href="https://fonts.googleapis.com/css2?family=Nunito&amp;display=swap" rel="stylesheet"&gt;
+
+        &lt;style&gt;
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}code{font-family:monospace,monospace;font-size:1em}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}code{font-family:Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-t{border-top-width:1px}.border-r{border-right-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-xl{max-width:36rem}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.uppercase{text-transform:uppercase}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.tracking-wider{letter-spacing:.05em}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@-webkit-keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes  spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@keyframes  ping{0%{transform:scale(1);opacity:1}75%,to{transform:scale(2);opacity:0}}@-webkit-keyframes pulse{0%,to{opacity:1}50%{opacity:.5}}@keyframes  pulse{0%,to{opacity:1}50%{opacity:.5}}@-webkit-keyframes bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@keyframes  bounce{0%,to{transform:translateY(-25%);-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);animation-timing-function:cubic-bezier(.8,0,1,1)}50%{transform:translateY(0);-webkit-animation-timing-function:cubic-bezier(0,0,.2,1);animation-timing-function:cubic-bezier(0,0,.2,1)}}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
+        &lt;/style&gt;
+
+        &lt;style&gt;
+            body {
+                font-family: 'Nunito', sans-serif;
+            }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body class="antialiased"&gt;
+        &lt;div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0"&gt;
+            &lt;div class="max-w-xl mx-auto sm:px-6 lg:px-8"&gt;
+                &lt;div class="flex items-center pt-8 sm:justify-start sm:pt-0"&gt;
+                    &lt;div class="px-4 text-lg text-gray-500 border-r border-gray-400 tracking-wider"&gt;
+                        404                    &lt;/div&gt;
+
+                    &lt;div class="ml-4 text-lg text-gray-500 uppercase tracking-wider"&gt;
+                        Not Found                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2025-09-27T03:15:34.838623" level="INFO">C:\Users\Rian\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'rahulshettyacademy.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2025-09-27T03:15:34.839063" level="FAIL">HTTPError: 404 Client Error: Not Found for url: https://rahulshettyacademy.com/loginpagePractise/login</msg>
+<var>${resp}</var>
+<arg>api_session</arg>
+<arg>/login</arg>
+<arg>json=${LOGIN_BODY}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-09-27T03:15:34.099822" elapsed="0.829109">HTTPError: 404 Client Error: Not Found for url: https://rahulshettyacademy.com/loginpagePractise/login</status>
 </kw>
-<arg>${User_invalid_id}</arg>
-<arg>${User_invalidpass}</arg>
-<status status="PASS" start="2025-09-26T21:20:29.528271" elapsed="0.390687"/>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" start="2025-09-27T03:15:34.929293" elapsed="0.000058"/>
 </kw>
-<kw name="wait until Element is located in the page" owner="ShopPage">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-26T21:20:29.920938" elapsed="2.117755"/>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${TOKEN}</var>
+<arg>${resp.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-09-27T03:15:34.929512" elapsed="0.000031"/>
 </kw>
-<arg>${Error_Message_Login}</arg>
-<status status="PASS" start="2025-09-26T21:20:29.919967" elapsed="2.118931"/>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${AUTH_TOKEN}</arg>
+<arg>Bearer ${TOKEN}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2025-09-27T03:15:34.929703" elapsed="0.000035"/>
 </kw>
-<kw name="verify error message is correct" owner="LandingPage">
-<kw name="Element Text Should Be" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:32.039869" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
-<msg time="2025-09-26T21:20:32.040690" level="INFO">Verifying element 'css:.alert-danger' contains exact text 'Incorrect username/password.'.</msg>
-<arg>${Error_Message_Login}</arg>
-<arg>Incorrect username/password.</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="PASS" start="2025-09-26T21:20:32.039935" elapsed="0.011145"/>
+<status status="FAIL" start="2025-09-27T03:15:34.097824" elapsed="0.832113">HTTPError: 404 Client Error: Not Found for url: https://rahulshettyacademy.com/loginpagePractise/login</status>
 </kw>
-<status status="PASS" start="2025-09-26T21:20:32.039428" elapsed="0.011838"/>
+<kw name="Setup Test Headers" owner="APIpage">
+<status status="NOT RUN" start="2025-09-27T03:15:34.930891" elapsed="0.000072"/>
 </kw>
-<status status="PASS" start="2025-09-26T21:20:22.313173" elapsed="9.738595"/>
+<status status="FAIL" start="2025-09-27T03:15:27.059860" elapsed="7.871635">HTTPError: 404 Client Error: Not Found for url: https://rahulshettyacademy.com/loginpagePractise/login</status>
 </test>
-<test id="s1-t2" name="Validate Cards display in the shopping page" line="31">
-<kw name="open the browser with the Mortagage payment url" owner="resource" type="SETUP">
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:32.054539" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
-<arg>Firefox</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-09-26T21:20:32.054299" elapsed="7.362993"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:39.418191" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
-<arg>${Url}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-09-26T21:20:39.417765" elapsed="1.113955"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-09-26T21:20:40.532265" elapsed="0.013933"/>
-</kw>
-<status status="PASS" start="2025-09-26T21:20:32.053784" elapsed="8.492603"/>
-</kw>
-<kw name="Fill the Loging form" owner="LandingPage">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:40.548238" level="INFO">Typing text 'rahulshettyacademy' into text field 'id:username'.</msg>
-<arg>id:username</arg>
-<arg>${userId}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:40.547820" elapsed="0.257064"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:40.805705" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2025-09-26T21:20:40.816090" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id:password</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:40.805265" elapsed="0.032528"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:40.838511" level="INFO">Clicking button 'signInBtn'.</msg>
-<arg>signInBtn</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:40.838189" elapsed="0.249849"/>
-</kw>
-<arg>${User_Valid_id}</arg>
-<arg>${User_valid_pass}</arg>
-<status status="PASS" start="2025-09-26T21:20:40.547017" elapsed="0.541275"/>
-</kw>
-<kw name="wait until Element is located in the page" owner="ShopPage">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-26T21:20:41.092195" elapsed="3.337175"/>
-</kw>
-<arg>${Page}</arg>
-<status status="PASS" start="2025-09-26T21:20:41.091330" elapsed="3.338372"/>
-</kw>
-<kw name="Verify card title in the shop page" owner="ShopPage">
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-09-26T21:20:44.442953" level="INFO">@{listelements} = [ iphone X | Samsung Note 8 | Nokia Edge | Blackberry ]</msg>
-<var>@{listelements}</var>
-<arg>iphone X</arg>
-<arg>Samsung Note 8</arg>
-<arg>Nokia Edge</arg>
-<arg>Blackberry</arg>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.434621" elapsed="0.009021"/>
-</kw>
-<kw name="Get WebElements" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:44.456524" level="INFO">@{LIST} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="62ac5485-a060-4b49-af27-d813d1a1fe5d", element="704d16f2-eb49-47f7-bf20-1db14b3b274f")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement ...</msg>
-<var>@{LIST}</var>
-<arg>css:.card-title</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.444348" elapsed="0.012281"/>
-</kw>
-<kw name="Create List" owner="BuiltIn">
-<msg time="2025-09-26T21:20:44.457320" level="INFO">@{actuallist} = [ ]</msg>
-<var>@{actuallist}</var>
-<doc>Returns a list containing given items.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.456943" elapsed="0.000926"/>
-</kw>
-<for flavor="IN">
-<iter>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-26T21:20:44.654126" level="INFO">iphone X</msg>
-<arg>${element.text}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.460024" elapsed="0.194251"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${actuallist}</arg>
-<arg>${element.text}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.654616" elapsed="0.049291"/>
-</kw>
-<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="62ac5485-a060-4b49-af27-d813d1a1fe5d", element="704d16f2-eb49-47f7-bf20-1db14b3b274f")&gt;</var>
-<status status="PASS" start="2025-09-26T21:20:44.459599" elapsed="0.244540"/>
-</iter>
-<iter>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-26T21:20:44.756237" level="INFO">Samsung Note 8</msg>
-<arg>${element.text}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.704757" elapsed="0.051599"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${actuallist}</arg>
-<arg>${element.text}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.756669" elapsed="0.040011"/>
-</kw>
-<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="62ac5485-a060-4b49-af27-d813d1a1fe5d", element="7cc805c4-515e-4978-971e-7db91b85ecc8")&gt;</var>
-<status status="PASS" start="2025-09-26T21:20:44.704481" elapsed="0.092336"/>
-</iter>
-<iter>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-26T21:20:44.823210" level="INFO">Nokia Edge</msg>
-<arg>${element.text}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.797340" elapsed="0.026019"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${actuallist}</arg>
-<arg>${element.text}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.823679" elapsed="0.045278"/>
-</kw>
-<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="62ac5485-a060-4b49-af27-d813d1a1fe5d", element="a4b0cec4-d13d-4e2a-97d4-639eadf46849")&gt;</var>
-<status status="PASS" start="2025-09-26T21:20:44.797098" elapsed="0.072024"/>
-</iter>
-<iter>
-<kw name="Log" owner="BuiltIn">
-<msg time="2025-09-26T21:20:44.894133" level="INFO">Blackberry</msg>
-<arg>${element.text}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.869627" elapsed="0.024593"/>
-</kw>
-<kw name="Append To List" owner="Collections">
-<arg>${actuallist}</arg>
-<arg>${element.text}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.894442" elapsed="0.022274"/>
-</kw>
-<var name="${element}">&lt;selenium.webdriver.remote.webelement.WebElement (session="62ac5485-a060-4b49-af27-d813d1a1fe5d", element="29282a6f-9b5f-4d66-847d-23c8e8ead730")&gt;</var>
-<status status="PASS" start="2025-09-26T21:20:44.869388" elapsed="0.047487"/>
-</iter>
-<var>${element}</var>
-<value>@{LIST}</value>
-<status status="PASS" start="2025-09-26T21:20:44.458228" elapsed="0.458824"/>
-</for>
-<kw name="Lists Should Be Equal" owner="Collections">
-<arg>${actuallist}</arg>
-<arg>${listelements}</arg>
-<doc>Fails if given lists are unequal.</doc>
-<status status="PASS" start="2025-09-26T21:20:44.917591" elapsed="0.001090"/>
-</kw>
-<status status="PASS" start="2025-09-26T21:20:44.433512" elapsed="0.485410"/>
-</kw>
-<kw name="Add Card Shop List" owner="shop">
-<msg time="2025-09-26T21:20:44.945949" level="INFO">Clicking button 'xpath:(//*[@class='card-footer'])[1]/button'.</msg>
-<msg time="2025-09-26T21:20:45.078785" level="INFO">Clicking button 'xpath:(//*[@class='card-footer'])[3]/button'.</msg>
-<msg time="2025-09-26T21:20:45.196751" level="INFO">Clicking link 'css:li.active a'.</msg>
-<msg time="2025-09-26T21:20:45.635463" level="INFO">Cart items: ['', 'iphone X', 'Sim cart', '', 'Nokia Edge', 'Sim cart']</msg>
-<arg>${productLists}</arg>
-<status status="PASS" start="2025-09-26T21:20:44.920118" elapsed="0.715543"/>
-</kw>
-<kw name="Verify items in the checkout page and process" owner="CheckoutPage">
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:45.637689" level="INFO">Clicking element 'css:.btn.btn-success'.</msg>
-<arg>css:.btn.btn-success</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:45.637378" elapsed="0.147779"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>css:.btn.btn-success</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-09-26T21:20:45.785509" elapsed="0.004479"/>
-</kw>
-<status status="PASS" start="2025-09-26T21:20:45.636774" elapsed="0.153549"/>
-</kw>
-<kw name="Enter the contry and select it" owner="ConfermationPage">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:45.793605" level="INFO">Typing text 'India' into text field 'id:country'.</msg>
-<arg>id:country</arg>
-<arg>${country_name}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:45.792767" elapsed="0.077022"/>
-</kw>
-<kw name="wait until Element is located in the page" owner="ShopPage">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:51.055387" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-09-26T21:20:51.055998" level="FAIL">Element '//a[text()='India']' not visible after 5 seconds.</msg>
-<arg>${element}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2025-09-26T21:20:45.870893" elapsed="5.192782">Element '//a[text()='India']' not visible after 5 seconds.</status>
-</kw>
-<arg>//a[text()='India']</arg>
-<status status="FAIL" start="2025-09-26T21:20:45.870240" elapsed="5.193758">Element '//a[text()='India']' not visible after 5 seconds.</status>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>//a[text()='${country_name}']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-09-26T21:20:51.064243" elapsed="0.000046"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>css:.checkbox label</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-09-26T21:20:51.064424" elapsed="0.000031"/>
-</kw>
-<arg>${country_name}</arg>
-<status status="FAIL" start="2025-09-26T21:20:45.791711" elapsed="5.272879">Element '//a[text()='India']' not visible after 5 seconds.</status>
-</kw>
-<status status="FAIL" start="2025-09-26T21:20:32.052522" elapsed="19.012477">Element '//a[text()='India']' not visible after 5 seconds.</status>
-</test>
-<test id="s1-t3" name="Select the from and navigate to the child window" line="41">
-<kw name="open the browser with the Mortagage payment url" owner="resource" type="SETUP">
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:51.069768" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
-<arg>Firefox</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="PASS" start="2025-09-26T21:20:51.069536" elapsed="7.552788"/>
-</kw>
-<kw name="Go To" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:58.623275" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
-<arg>${Url}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="PASS" start="2025-09-26T21:20:58.622856" elapsed="0.908623"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-09-26T21:20:59.558911" elapsed="0.029190"/>
-</kw>
-<status status="PASS" start="2025-09-26T21:20:51.069033" elapsed="8.519295"/>
-</kw>
-<kw name="Fill the login details and login form" owner="LandingPage">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:59.597791" level="INFO">Typing text 'rahulshettyacademy' into text field 'id:username'.</msg>
-<arg>id:username</arg>
-<arg>rahulshettyacademy</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:59.597312" elapsed="0.233032"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:59.831221" level="INFO">Typing password into text field 'id:password'.</msg>
-<msg time="2025-09-26T21:20:59.866813" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>id:password</arg>
-<arg>learning</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:59.830849" elapsed="0.073112"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:20:59.904646" level="INFO">Clicking element 'css:input[value='user']'.</msg>
-<arg>css:input[value='user']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:20:59.904302" elapsed="0.143742"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>css:.modal-body</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2025-09-26T21:21:00.050064" elapsed="0.330058"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:21:00.381087" level="INFO">Clicking button 'id:okayBtn'.</msg>
-<arg>id:okayBtn</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-09-26T21:21:00.380752" elapsed="0.351336"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-09-26T21:21:00.732797" level="INFO">Clicking button 'id:okayBtn'.</msg>
-<msg time="2025-09-26T21:21:01.396874" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2025-09-26T21:21:01.397712" level="FAIL">ElementNotInteractableException: Message: Element &lt;button id="okayBtn" class="btn btn-success" type="button"&gt; could not be scrolled into view
-Stacktrace:
-RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
-WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
-ElementNotInteractableError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:371:5
-webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:165:11
-interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
-clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:327:29
-receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:210:31
-</msg>
-<arg>id:okayBtn</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="FAIL" start="2025-09-26T21:21:00.732464" elapsed="1.765930">ElementNotInteractableException: Message: Element &lt;button id="okayBtn" class="btn btn-success" type="button"&gt; could not be scrolled into view
-Stacktrace:
-RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
-WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
-ElementNotInteractableError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:371:5
-webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:165:11
-interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
-clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:327:29
-receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:210:31
-</status>
-</kw>
-<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
-<arg>css:.modal-body</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="NOT RUN" start="2025-09-26T21:21:02.500147" elapsed="0.000162"/>
-</kw>
-<kw name="Select From List By Value" owner="SeleniumLibrary">
-<arg>css:Select.form-control</arg>
-<arg>teach</arg>
-<doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<status status="NOT RUN" start="2025-09-26T21:21:02.500925" elapsed="0.000084"/>
-</kw>
-<kw name="Select Checkbox" owner="SeleniumLibrary">
-<arg>terms</arg>
-<doc>Selects the checkbox identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-09-26T21:21:02.501269" elapsed="0.000055"/>
-</kw>
-<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
-<arg>terms</arg>
-<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
-<status status="NOT RUN" start="2025-09-26T21:21:02.501579" elapsed="0.000058"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<arg>id:signInBtn</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" start="2025-09-26T21:21:02.501833" elapsed="0.000044"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>css:.nav-link</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="NOT RUN" start="2025-09-26T21:21:02.506131" elapsed="0.000124"/>
-</kw>
-<status status="FAIL" start="2025-09-26T21:20:59.596525" elapsed="2.910051">ElementNotInteractableException: Message: Element &lt;button id="okayBtn" class="btn btn-success" type="button"&gt; could not be scrolled into view
-Stacktrace:
-RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
-WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
-ElementNotInteractableError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:371:5
-webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:165:11
-interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
-clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:327:29
-receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:210:31
-</status>
-</kw>
-<status status="FAIL" start="2025-09-26T21:20:51.067910" elapsed="11.443100">ElementNotInteractableException: Message: Element &lt;button id="okayBtn" class="btn btn-success" type="button"&gt; could not be scrolled into view
-Stacktrace:
-RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:8:8
-WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:202:5
-ElementNotInteractableError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:371:5
-webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:165:11
-interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
-clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:327:29
-receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:210:31
-</status>
-</test>
-<doc>To validate the Login form</doc>
-<status status="FAIL" start="2025-09-26T21:20:21.864986" elapsed="40.697335"/>
+<doc>A resousce file is used for reusedable keywords and variables</doc>
+<status status="FAIL" start="2025-09-27T03:15:26.594904" elapsed="8.337991"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="2" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Test" id="s1" pass="1" fail="2" skip="0">Test</stat>
+<stat name="Test" id="s1" pass="0" fail="1" skip="0">Test</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-09-26T21:20:32.039869" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-09-27T03:15:26.595176" level="ERROR">Error in file 'F:\Test project\Custome_Keywords\test.robot' on line 32: Setting variable '${CREATED_ITEM_ID} ${EMPTY}' failed: Invalid variable name '${CREATED_ITEM_ID} ${EMPTY}'.</msg>
+<msg time="2025-09-27T03:15:26.998944" level="WARN">Error in file 'F:\Test project\Custome_Keywords\PO\APIpage.robot' on line 29: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
 </errors>
 </robot>

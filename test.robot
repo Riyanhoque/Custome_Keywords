@@ -11,6 +11,7 @@ Resource        ./PO/LandingPage.robot
 Resource        ./PO/ShopPage.robot
 Resource        ./PO/CheckoutPage.robot
 Resource        ./PO/ConfermationPage.robot
+Resource    PO/APIpage.robot
 
 
 *** Variables ***
@@ -19,10 +20,18 @@ ${Page}                       css:.nav-link
 @{productLists}        iphone X    Nokia Edge
 ${country_name}        India
 
+${VALID_USER}      api_test_user
+${VALID_PASS}      api_secure_pass
+${INVALID_USER}    wrong_user
+${INVALID_PASS}    wrong_pass
+
+${ITEMS_ENDPOINT}  /items
+${LOGIN_ENDPOINT}  /login
+
+${AUTH_TOKEN}      ${EMPTY}
+${CREATED_ITEM_ID} ${EMPTY}
 
 *** Test Cases ***    
-
-
 Validate UnSuccesful Login         
     LandingPage.Fill the Loging form    ${User_invalid_id}    ${User_invalidpass}
     ShopPage.wait until Element is located in the page        ${Error_Message_Login}
@@ -38,7 +47,11 @@ Validate Cards display in the shopping page
     ConfermationPage.Enter the contry and select it        ${country_name}
 
 
-Select the from and navigate to the child window
-    LandingPage.Fill the login details and login form    
+# Select the from and navigate to the child window
+#     LandingPage.Fill the login details and login form    
 
+
+API Test Create and delete item
+    APIpage.Create Session and Login
+    APIpage.Setup Test Headers
 
