@@ -1,33 +1,9 @@
 ==============================================================================
-Custome Keywords                                                              
+Api                                                                           
 ==============================================================================
-Custome Keywords.Test :: To validate the Login form                           
-==============================================================================
-Validate Cards display in the shopping page                             
-  Traceback (most recent call last):
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    File  F:\Test project\Custome_Keywords\test.robot:31
-    T:  Validate Cards display in the shopping page    
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    File  F:\Test project\Custome_Keywords\test.robot:38
-      Enter the contry and select it    ${country_name}
-      |  ${country_name} = India (str)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    File  F:\Test project\Custome_Keywords\PO\ConfermationPage.robot:17
-      wait until Element is located in the page    //a[text()='${country_name}']
-      |  //a[text()='${country_name}'] = //a[text()='India'] (str)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    File  F:\Test project\Custome_Keywords\PO\ShopPage.robot:9
-      Wait Until Element Is Visible    ${element}
-      |  ${element} = //a[text()='India'] (str)
-______________________________________________________________________________
-| FAIL |
-Element '//a[text()='India']' not visible after 5 seconds.
+play around with the dictionary                                       | PASS |
 ------------------------------------------------------------------------------
-Custome Keywords.Test :: To validate the Login form                   | FAIL |
-1 test, 0 passed, 1 failed
-==============================================================================
-Custome Keywords                                                      | FAIL |
-1 test, 0 passed, 1 failed
+Api                                                                   | PASS |
+1 test, 1 passed, 0 failed
 ==============================================================================
 Output:  F:\Test project\Custome_Keywords\pabot_results\0\output.xml

@@ -47,11 +47,8 @@ Validate Cards display in the shopping page
     ConfermationPage.Enter the contry and select it        ${country_name}
 
 
-# Select the from and navigate to the child window
-#     LandingPage.Fill the login details and login form    
+Select the from and navigate to the child window
+    LandingPage.Fill the login details and login form    
 
 
-API Test Create and delete item
-    APIpage.Create Session and Login
-    APIpage.Setup Test Headers
 
