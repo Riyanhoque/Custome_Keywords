@@ -17,3 +17,9 @@ open the browser with the Mortagage payment url
     Create Webdriver    Firefox
     Go To    ${Url}
     Maximize Browser Window
+
+
+Open the browser url
+    [Arguments]    ${browser_name}
+    Create Webdriver    ${browser_name}
+    Go To    ${Url}

@@ -22,7 +22,6 @@ Fill the login details and login form
     Click Element     css:input[value='user']
     Wait Until Element Is Visible        css:.modal-body   
     Click Button      id:okayBtn
-    Click Button      id:okayBtn
     Wait Until Element Is Not Visible        css:.modal-body
     Select From List By Value    css:Select.form-control    teach
     Select Checkbox     terms

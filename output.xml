@@ -1,38 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Rebot 7.2.2 (Python 3.13.2 on win32)" generated="2026-01-10T19:18:42.351794" rpa="false" schemaversion="5">
-<suite id="s1" name="Api" source="F:\Test project\Custome_Keywords\api.robot">
-<test id="s1-t1" name="play around with the dictionary" line="9">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2026-01-10T19:18:42.024247" level="INFO">&amp;{data} = { name=rahulshetty | courese=robot | website=rahulshettyacademy.com }</msg>
-<var>&amp;{data}</var>
-<arg>name=rahulshetty</arg>
-<arg>courese=robot</arg>
-<arg>website=rahulshettyacademy.com</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2026-01-10T19:18:42.023924" elapsed="0.000359"/>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2026-01-11T20:24:55.180385" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="F:\Test project\Custome_Keywords\test.robot">
+<test id="s1-t1" name="Select the from and navigate to the child window" line="51">
+<kw name="Open the browser url" owner="resource" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2026-01-11T20:24:55.556208" level="INFO">Creating an instance of the Firefox WebDriver.</msg>
+<arg>${browser_name}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2026-01-11T20:24:55.556015" elapsed="7.090546"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-01-10T19:18:42.024571" level="INFO">{'name': 'rahulshetty', 'courese': 'robot', 'website': 'rahulshettyacademy.com'}</msg>
-<arg>${data}</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-01-10T19:18:42.024421" elapsed="0.000194"/>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-11T20:25:02.647222" level="INFO">Opening url 'https://rahulshettyacademy.com/loginpagePractise/'</msg>
+<arg>${Url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-11T20:25:02.646916" elapsed="1.104601"/>
 </kw>
-<kw name="Dictionary Should Contain Key" owner="Collections">
-<arg>${data}</arg>
-<arg>website</arg>
-<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2026-01-10T19:18:42.024703" elapsed="0.000147"/>
+<arg>Firefox</arg>
+<status status="PASS" start="2026-01-11T20:24:55.555120" elapsed="8.196708"/>
 </kw>
-<kw name="Log" owner="BuiltIn">
-<msg time="2026-01-10T19:18:42.025043" level="INFO">rahulshettyacademy.com</msg>
-<arg>${data}[website]</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-01-10T19:18:42.024935" elapsed="0.000143"/>
+<kw name="Fill the login details and login form" owner="LandingPage">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-11T20:25:03.754282" level="INFO">Typing text 'rahulshettyacademy' into text field 'id:username'.</msg>
+<arg>id:username</arg>
+<arg>rahulshettyacademy</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-11T20:25:03.753629" elapsed="0.213051"/>
 </kw>
-<status status="PASS" start="2026-01-10T19:18:42.023130" elapsed="0.002029"/>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-11T20:25:03.967557" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-01-11T20:25:03.981076" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>learning</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-11T20:25:03.967013" elapsed="0.068627"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-01-11T20:25:04.036662" level="INFO">Clicking element 'css:input[value='user']'.</msg>
+<arg>css:input[value='user']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-11T20:25:04.036148" elapsed="0.108187"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:.modal-body</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-11T20:25:04.144739" elapsed="0.647199"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-11T20:25:04.792685" level="INFO">Clicking button 'id:okayBtn'.</msg>
+<arg>id:okayBtn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-11T20:25:04.792309" elapsed="0.114337"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" owner="SeleniumLibrary">
+<arg>css:.modal-body</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" start="2026-01-11T20:25:04.907082" elapsed="0.248084"/>
+</kw>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2026-01-11T20:25:05.156617" level="INFO">Selecting options from selection list 'css:Select.form-control' by value teach.</msg>
+<arg>css:Select.form-control</arg>
+<arg>teach</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2026-01-11T20:25:05.155852" elapsed="0.169425"/>
+</kw>
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2026-01-11T20:25:05.326003" level="INFO">Selecting checkbox 'terms'.</msg>
+<arg>terms</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-11T20:25:05.325641" elapsed="0.085818"/>
+</kw>
+<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
+<msg time="2026-01-11T20:25:05.412231" level="INFO">Verifying checkbox 'terms' is selected.</msg>
+<arg>terms</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<status status="PASS" start="2026-01-11T20:25:05.411851" elapsed="0.013449"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-11T20:25:05.426039" level="INFO">Clicking button 'id:signInBtn'.</msg>
+<arg>id:signInBtn</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-11T20:25:05.425671" elapsed="0.149408"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>css:.nav-link</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-01-11T20:25:05.575466" elapsed="3.327430"/>
+</kw>
+<status status="PASS" start="2026-01-11T20:25:03.752986" elapsed="5.150186"/>
+</kw>
+<status status="PASS" start="2026-01-11T20:24:55.554376" elapsed="13.350002"/>
 </test>
-<doc>[https://pabot.org/?ref=log|Pabot] result from 1 executions.</doc>
-<status status="PASS" start="2026-01-10T19:18:41.712000" elapsed="0.002000"/>
+<doc>A resousce file is used for reusedable keywords and variables</doc>
+<status status="PASS" start="2026-01-11T20:24:55.186330" elapsed="13.720055"/>
 </suite>
 <statistics>
 <total>
@@ -41,9 +100,11 @@
 <tag>
 </tag>
 <suite>
-<stat name="Api" id="s1" pass="1" fail="0" skip="0">Api</stat>
+<stat name="Test" id="s1" pass="1" fail="0" skip="0">Test</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2026-01-11T20:24:55.186870" level="ERROR">Error in file 'F:\Test project\Custome_Keywords\test.robot' on line 32: Setting variable '${CREATED_ITEM_ID} ${EMPTY}' failed: Invalid variable name '${CREATED_ITEM_ID} ${EMPTY}'.</msg>
+<msg time="2026-01-11T20:24:55.552752" level="ERROR">Error in file 'F:\Test project\Custome_Keywords\test.robot' on line 14: Error in file 'F:\Test project\Custome_Keywords\api.robot' on line 7: Resource file with 'Test Cases' section is invalid.</msg>
 </errors>
 </robot>

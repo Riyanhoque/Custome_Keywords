@@ -4,14 +4,14 @@ Library    SeleniumLibrary
 Library    Collections
 Library        ./custome_library/shop.py
 Library    XML
-Test Setup        open the browser with the Mortagage payment url
+Test Setup        Open the browser url    Firefox
 # Test Teardown        Close Browser
 Resource        resource.robot
 Resource        ./PO/LandingPage.robot
 Resource        ./PO/ShopPage.robot
 Resource        ./PO/CheckoutPage.robot
 Resource        ./PO/ConfermationPage.robot
-Resource    PO/APIpage.robot
+Resource         api.robot
 
 
 *** Variables ***
@@ -32,7 +32,8 @@ ${AUTH_TOKEN}      ${EMPTY}
 ${CREATED_ITEM_ID} ${EMPTY}
 
 *** Test Cases ***    
-Validate UnSuccesful Login         
+Validate UnSuccesful Login
+    [Tags]    Negative     
     LandingPage.Fill the Loging form    ${User_invalid_id}    ${User_invalidpass}
     ShopPage.wait until Element is located in the page        ${Error_Message_Login}
     LandingPage.verify error message is correct 
@@ -49,6 +50,8 @@ Validate Cards display in the shopping page
 
 Select the from and navigate to the child window
     LandingPage.Fill the login details and login form    
+
+
 
 
 
